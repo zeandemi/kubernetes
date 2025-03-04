@@ -23,4 +23,5 @@ spec:
       image: 22piston/stock-price-backend-app:latest
       ports:
         - containerPort: 80
-    
+    nodeSelector:
+      eks.amazonaws.com/nodegroup: t3_medium-node_privategroup
