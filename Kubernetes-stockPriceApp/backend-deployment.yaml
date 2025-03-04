@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deploy
+  labels:
+    name: backend-deploy
+    app: stockprice-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     name: backend-pod
+     app: stockprice-app
+  template:
+   metadata:
+    name: backend-pod
+    labels:
+      name: backend-pod
+      app: stockprice-app
+   spec:
+    containers:
+    - name: stockprice-app
+      image: 22piston/stock-price-backend-app:latest
+      ports:
+        - containerPort: 80
+    
